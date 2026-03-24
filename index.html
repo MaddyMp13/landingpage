@@ -12,9 +12,35 @@
             padding: 0;
             margin: 0 auto;
             box-sizing: border-box;
-            font-size: 22px;
-            background-color: rgb(255, 255, 255);
-            max-width: 1000px;
+            font-size: 18px;
+            /* background-color: rgb(255, 255, 255); */
+            max-width: 1200px;
+            position: relative;
+            background-color: #0f172a;
+        }
+
+        nav {
+            position: absolute;
+            background-color: #e9e9e9;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 11;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav .pages ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            gap: 20px;
+            list-style: none;
+
         }
 
         .section {
@@ -22,6 +48,11 @@
             background-color: #f8f8f8;
             /* background-image: linear-gradient(90deg, #2af598 0%, #009efd 100%); */
         }
+
+        .container {
+            width: 100% !important;
+        }
+
 
         .hero-section {
             display: flex;
@@ -35,11 +66,16 @@
             /* background-image: linear-gradient(0deg, #2af598 0%, #009efd 100%); */
         }
 
+        .final {
+            color: #fff;
+            background: linear-gradient(130deg, #bdc3c7 20%, #2c3e50 100%);
+        }
+
         .main-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 24px;
         }
 
         button {
@@ -48,36 +84,60 @@
             border-radius: 20px;
         }
 
-        .problem-section {
+        .inner-section {
+            display: flex;
+            gap: 24px;
             width: 100%;
-            color: #000;
+        }
 
+        .inner-section .card {
+            padding: 30px;
+            border-radius: 16px;
+            background-color: #1e293b;
+            color: #000;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+            gap: 24px;
         }
 
         .card {
-            padding: 32px;
+            padding: 24px;
+            border-radius: 16px;
+            background-color: #1e293b;
+            color: #fff;
         }
 
         .testimonial-grid {
+            text-align: center;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 20px;
+            gap: 24px;
         }
 
         .price-grid {
             display: grid;
-            gap: 20px;
+            gap: 24px;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
         }
 
+        .price-grid h5 {
+            font-size: 32px;
+        }
+
+        .price-grid .card:nth-child(2) {
+            transform: scale(1.1);
+            z-index: 12;
+        }
+
+
         @media screen and (max-width:768px) {
+            .hero-section {
+                height: 140vh;
+            }
+
             .main-wrapper {
                 flex-direction: column;
             }
@@ -92,6 +152,14 @@
                 padding: 20px;
             }
 
+            .inner-section {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
             .img img {
                 width: 100%;
             }
@@ -104,31 +172,46 @@
 </head>
 
 <body>
+    <nav>
+        <div class="logo">
+            <img src="./assets/Arken-Logo.webp" alt="" width="120px">
+        </div>
+        <div class="pages">
+            <ul>
+                <li>Features </li>
+                <li>Pricing </li>
+                <li>About </li>
+                <li>Login </li>
+            </ul>
+        </div>
+
+    </nav>
     <div class="hero-section section">
         <div class="main-wrapper container">
             <div class="text">
-                <h1>“Work Smarter. Not Harder.”</h1>
+                <h1 style="font-size: 48px;">“Work Smarter. Not Harder.”</h1>
                 <p>“FlowTrack uses AI to organize your tasks, prioritize work, and boost team productivity.”</p>
+                <div class="mt-5">
+                    <button class="btn btn-primary">Start Free Trial</button>
+                    <button class="btn btn-secondary">Watch Demo</button>
+                </div>
             </div>
             <div class="img">
-                <img src="./—Pngtree—digital tablet showing sales performance_23833072.png" alt="" width="380px">
+                <img src="./assets/—Pngtree—digital tablet showing sales performance_23833072.png" alt="" width="380px">
             </div>
         </div>
-        <div>
-            <button class="btn btn-primary">Start Free Trial</button>
-            <button class="btn btn-secondary">Watch Demo</button>
-        </div>
+
     </div>
-    <div class="problem-section section">
-        <div class="container">
-            <h2 class="mb-5 border p-3 bg-light shadow">“Managing tasks across tools is messy and time-consuming.”
+    <div class="problem-section section ">
+        <div class="inner-section container">
+            <h2 class="card border bg-light shadow">“Managing tasks across tools is messy and time-consuming.”
             </h2>
-            <h4 class=" border p-3 bg-light shadow">“FlowTrack centralizes everything and uses AI to suggest what to do
+            <h4 class=" card border bg-light shadow">“FlowTrack centralizes everything and uses AI to suggest what to do
                 next.”</h4>
         </div>
     </div>
-    <div class="features-section container section">
-        <div class="">
+    <div class="features-section  section">
+        <div class="container">
             <h2 class="mb-5">Features</h2>
             <div class=" grid-container ">
                 <div class="card shadow">🤖 AI Task Suggestions</div>
@@ -141,30 +224,35 @@
         </div>
     </div>
 
-    <div class="demo section container">
-        <h2 class="mb-5">Demo</h2>
-        <h2>“See how FlowTrack simplifies your workflow”</h2>
-        <div class="img my-5 text-center">
-            <img class="shadow" src="Screenshot 2026-03-24 023935.png" alt="" width="70%">
+    <div class="demo section ">
+        <div class="container">
+            <h2 class="mb-5">Demo</h2>
+            <h2>“See how FlowTrack simplifies your workflow”</h2>
+            <div class="img my-5 text-center">
+                <img class="shadow" src="./assets/Screenshot 2026-03-24 023935.png" alt="" width="100%">
+            </div>
         </div>
     </div>
 
-    <div class="section Testimonials container">
-        <h2 class="mb-5">Testimonials</h2>
-        <div class=" testimonial-grid ">
-            <div class="card shadow">
-                <h3>“FlowTrack boosted our productivity by 40%!”</h3>
-                <p>— Product Manager</p>
+    <div class="section Testimonials ">
+        <div class="container">
+            <h2 class="mb-5">Testimonials</h2>
+            <div class=" testimonial-grid ">
+                <div class="card shadow">
+                    <img class="m-auto mb-3 rounded" src="./assets/profile.png" alt="" width="50px">
+                    <h4>“FlowTrack boosted our productivity by 40%!”</h4>
+                    <p>— Product Manager</p>
+                </div>
+                <div class="card shadow">
+                    <img class="m-auto mb-3 rounded" src="./assets/profile.png" alt="" width="50px">
+                    <h4>“Simple, fast, and powerful.”</h4>
+                    <p>— Startup Founder</p>
+                </div>
             </div>
-            <div class="card shadow">
-                <h3>“Simple, fast, and powerful.”</h3>
-                <p>— Startup Founder</p>
-            </div>
-
         </div>
     </div>
-    <div class="section pricing container">
-        <div class="price-grid">
+    <div class="section pricing ">
+        <div class="price-grid container">
             <div class="card bg-success text-white">
                 <h5 class="mb-3 text-center">Starter</h5>
                 <ul>
@@ -191,14 +279,31 @@
             </div>
 
         </div>
-
-        <div class="section container final text-center mt-5 bg-info text-white">
+    </div>
+    <div class="section  final text-center  bg-info text-white">
+        <div class="container">
             <h2 class="mb-5">“Ready to take control of your work?”</h2>
-            <button class="bg-light ">“Start Free Trial”</button>
+            <form action="http://leadsdashboard.arkentechpublishing.com/login">
+                <button class="bg-light " type="submit">“Start Free Trial”</button>
+            </form>
         </div>
-
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script>
+
+        // no import necessary
+        gsap.from("nav", { y: -40, duration: 1, });
+        gsap.from(".text", { x: -180, opacity: 0, duration: 1, delay: 0.3 });
+        gsap.from(".img", { x: 180, opacity: 0, duration: 1, delay: 0.3 });
+        gsap.from('.card', {
+            y: 100,
+            opacity: 0,
+            stagger: 0.1,
+            delay: 0.6 // 0.1 seconds between when each ".box" element starts animating,
+        });
+    </script>
 </body>
 
 </html>
